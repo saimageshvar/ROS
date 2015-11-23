@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2015 at 12:55 PM
+-- Generation Time: Nov 23, 2015 at 09:43 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -23,18 +23,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `images`
---
-
-CREATE TABLE IF NOT EXISTS `images` (
-  `level` int(10) unsigned NOT NULL,
-  `img_no` int(10) NOT NULL,
-  `url` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `questions`
 --
 
@@ -43,18 +31,16 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `answer` varchar(100) NOT NULL,
   `url_hint` varchar(100) NOT NULL,
   `img_count` int(10) NOT NULL,
-  `clues` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `clues` varchar(100) NOT NULL,
+  `img0` varchar(100) DEFAULT NULL,
+  `img1` varchar(100) DEFAULT NULL,
+  `img2` varchar(100) DEFAULT NULL,
+  `img3` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `images`
---
-ALTER TABLE `images`
- ADD PRIMARY KEY (`level`,`url`);
 
 --
 -- Indexes for table `questions`
@@ -70,7 +56,7 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-MODIFY `level` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `level` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

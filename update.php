@@ -1,5 +1,6 @@
 <?php
 	include 'uploadImage.php';
+	include 'dbaccess.php';
 	$count=rmv_ws($_POST["count"]);
 	$level=rmv_ws($_POST["level"]);
 	$answer=rmv_ws($_POST["answer"]);
@@ -9,10 +10,6 @@
 	
 	//db access
 	
-	$hostname="localhost";
-	$username="localhost";
-	$password="password";
-	$dbname="ros";
 	$conn=mysqli_connect($hostname,$username,$password,$dbname);
 
 	if($conn)

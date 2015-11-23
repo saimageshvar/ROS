@@ -1,11 +1,11 @@
 <html>
 	<body>
 		<form method="post" action="insert.php?update=false" enctype="multipart/form-data">
-			Level <input type="number" name="level" id="level" required /> <br />
+			Level <input type="number" name="level" id="level" min="1" required /> <br />
 			Answer <input type="text" name="answer" required /> <br />
 			Url Hint <input type="text" name="url_hint" required /> <br />
 			Clue <input type="text" name="clue" required /> <br />
-			Count <input type="number" name="count" id="count" onchange="generate(this.value)" required /> <br />
+			Count <input type="number" name="count" id="count" onchange="generate(this.value)" min="0" max="4" required /> <br />
 			<span id="fooBar">&nbsp;</span>
 			<input type="submit" value="submit">
 		</form>
