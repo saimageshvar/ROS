@@ -1,6 +1,6 @@
 <?php
 	$hostname="localhost";
-	$username="localhost";
-	$password="password";
-	$dbname="ros";
+	$username="root";
+	$password="";
+	$dbname="temp";
 ?>

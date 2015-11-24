@@ -1,6 +1,6 @@
 <html>
 	<body>
-		<p align="right"><a href="http://localhost/k!%20ROS/ui%20page.html">Add New Question</a></p>
+		<p align="right"><a href="add_question.html">Add New Question</a></p>
 		<?php
 			include 'dbaccess.php';
 			$conn=mysqli_connect($hostname,$username,$password,$dbname);

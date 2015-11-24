@@ -1,6 +1,6 @@
 <html>
 	<body>
-		<p align="right"><a href="http://localhost/k!%20ROS/add_question.html">Add New Question</a></p>
+		<p align="right"><a href="add_question.html">Add New Question</a></p>
 		<?php
 			
 			include 'dbaccess.php';
@@ -38,8 +38,8 @@
 							echo "<td>".$url['img'.$i] ."</td>";
 							if($flag==false)
 							{
-								echo "<td rowspan='".$count."'><a href='http://localhost/k!%20ros/edit.php?level=".$level."'>Edit</a></td>";		
-								echo "<td rowspan='".$count."'><a href='http://localhost/k!%20ros/delete.php?level=".$level."'>Delete</a></td>";		
+								echo "<td rowspan='".$count."'><a href='edit.php?level=".$level."'>Edit</a></td>";		
+								echo "<td rowspan='".$count."'><a href='delete.php?level=".$level."'>Delete</a></td>";		
 								echo "</tr>";
 								$flag=true;
 							}

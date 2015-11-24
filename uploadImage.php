@@ -65,7 +65,7 @@
 				//echo "The file ". basename( $_FILES[$fileName]["name"]). " has been uploaded.";
 				
 				//inserting image url
-				$path="http://localhost/k!%20ROS/";
+				$path="/";
 				
 				if(true)
 				{
