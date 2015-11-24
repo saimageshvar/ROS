@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2015 at 09:43 PM
+-- Generation Time: Nov 24, 2015 at 04:22 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -36,7 +36,37 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `img1` varchar(100) DEFAULT NULL,
   `img2` varchar(100) DEFAULT NULL,
   `img3` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`level`, `answer`, `url_hint`, `img_count`, `clues`, `img0`, `img1`, `img2`, `img3`) VALUES
+(1, 'CTF', 'yahoo.com', 3, 'Train', '/uploads/1_0.jpg', '/uploads/1_1.jpg', '/uploads/1_2.jpg', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `k_id` varchar(20) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `level` int(5) NOT NULL DEFAULT '1',
+  `points` int(5) NOT NULL DEFAULT '0',
+  `blocked` tinyint(1) NOT NULL DEFAULT '0',
+  `start_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `lives` int(1) NOT NULL DEFAULT '3'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`k_id`, `name`, `level`, `points`, `blocked`, `start_time`, `lives`) VALUES
+('10002FE3', 'sai', 1, 0, 0, '2015-11-24 20:50:39', 3);
 
 --
 -- Indexes for dumped tables
@@ -49,6 +79,12 @@ ALTER TABLE `questions`
  ADD PRIMARY KEY (`level`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+ ADD PRIMARY KEY (`k_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -56,7 +92,7 @@ ALTER TABLE `questions`
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-MODIFY `level` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `level` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

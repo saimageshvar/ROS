@@ -9,7 +9,11 @@
 		</center>
 		<br>
 		<?php
-			
+			session_start();
+			if(isset($_SESSION["k_id"]))
+				echo "<p align='right'>Welcome ".$_SESSION["name"]."</p>";
+			else
+				echo "<p align='right'><a href='register.php'>Register</a></p>";
 			include 'dbaccess.php';
 			$conn=mysqli_connect($hostname,$username,$password,$dbname);
 			
