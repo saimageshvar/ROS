@@ -15,7 +15,7 @@
 					$i=0;
 					while($i < $row['img_count'])
 					{
-						unlink(".".substr($row['img'.$i],25));
+						unlink(".".substr($row['img'.$i],0));
 						$i++;
 					}
 	
@@ -23,7 +23,7 @@
 				$query = sprintf("delete from questions where level=%s;",$_GET['level']);
 				mysqli_query($conn,$query);
 				mysqli_close($conn);
-//				echo "<meta http-equiv='refresh' content='0;index.php'/>";
+				echo "<meta http-equiv='refresh' content='0;index.php'/>";
 			}
 			
 		?>

@@ -26,16 +26,19 @@
 						<span id="fooBar">&nbsp;</span>
 						
 						<?php
-							$query=sprintf("select * from images where level=".$level.";");
+							$query=sprintf("select img0,img1,img2,img3 from questions where level=".$level.";");
 							$urls=mysqli_query($conn,$query);
+							$img_path="http://localhost/k!%20ROS";
+							$url=mysqli_fetch_assoc($urls);
 							for($i=0;$i< $count;$i++)
 							{
-								$url=mysqli_fetch_assoc($urls);
+								
 							?>
 							
-							<img id="<?php echo 'i'.$level.'_'.$i ?>" src="<?php echo $url['url'] ?>" height="75" width="75" />
+							<img id="<?php echo 'i'.$level.'_'.$i ?>" src="<?php echo $img_path.$url['img'.$i] ?>" height="75" width="75" />
 							<input type="file" id="<?php echo $level.'_'.$i ?>" />
-							<input type="button" value="remove" id="<?php echo 'b'.$level.'_'.$i ?>" onclick="rem('<?php echo $level.'_'.$i ?>')"/>
+							<input type="button" value="remove" id="<?php echo 'b'.$level.'_'.$i ?>" onclick="rem('<?php echo $level.'_'.$i ?>','<?php echo $url['img'.$i] ?>','<?php echo $level ?>','<?php echo $i ?>'); "/>
+							<input type="hidden" id="img_url" value="'<?php echo $img_path.$url['img'.$i] ?>'" />
 							<br/>
 							
 							<?php	
@@ -48,11 +51,14 @@
 					
 					
 				</form>
+				
+
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 				
 				<script>
-					function rem(name)
+					function rem(name,url,level,id)
 					{
+						
 						$("#"+name).remove();
 						$("#b"+name).remove();
 						$("#i"+name).remove();
@@ -60,7 +66,7 @@
 						cnt=cnt-1;
 						document.getElementById("count").value=cnt;
 						document.getElementById("hiddenCount").value=cnt;
-						
+						window.location="deleteImage.php?url="+url+"&level="+level+"&id="+id+"&count="+cnt;
 						
 					}
 				</script>
