@@ -1,6 +1,13 @@
 <html>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css" />
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<body>
-		<p align="right"><a href="add_question.html">Add New Question</a></p>
+		<br>
+		<center>
+			<a href="add_question.html"><button class ="btn btn-success">Add New Question</button></a>
+		</center>
+		<br>
 		<?php
 			
 			include 'dbaccess.php';
@@ -12,7 +19,7 @@
 				$result=mysqli_query($conn,$query);
 				if(mysqli_num_rows($result) > 0)
 				{
-					echo "<table border='2' style='text-align:center'><tr><th>Level</th><th>Answer</th><th>Url Hint</th><th>Clue</th><th>Image Url</th></tr>";
+					echo "<table class='table 	' ><tr><th>Level</th><th>Answer</th><th>Url Hint</th><th>Clue</th><th>Image Url</th><th>Edit</th><th>Delete</th></tr>";
 					
 					while($row=mysqli_fetch_assoc($result))
 					{
