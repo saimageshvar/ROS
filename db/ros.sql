@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2015 at 04:22 PM
+-- Generation Time: Nov 24, 2015 at 07:07 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -19,6 +19,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `ros`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `log`
+--
+
+CREATE TABLE IF NOT EXISTS `log` (
+`number` int(10) NOT NULL,
+  `k_id` varchar(20) NOT NULL,
+  `level` int(5) NOT NULL,
+  `answer` varchar(100) NOT NULL,
+  `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `log`
+--
+
+INSERT INTO `log` (`number`, `k_id`, `level`, `answer`, `timestamp`) VALUES
+(1, '10002FE3', 1, 'CTF', '2015-11-24 23:34:32'),
+(2, '10002FE3', 1, 'CTF', '2015-11-24 23:35:15'),
+(3, '10002FE3', 1, 'CTF', '2015-11-24 23:35:46');
 
 -- --------------------------------------------------------
 
@@ -66,11 +89,17 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`k_id`, `name`, `level`, `points`, `blocked`, `start_time`, `lives`) VALUES
-('10002FE3', 'sai', 1, 0, 0, '2015-11-24 20:50:39', 3);
+('10002FE3', 'sai', 2, 0, 0, '2015-11-24 23:35:46', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `log`
+--
+ALTER TABLE `log`
+ ADD PRIMARY KEY (`number`);
 
 --
 -- Indexes for table `questions`
@@ -88,6 +117,11 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `log`
+--
+ALTER TABLE `log`
+MODIFY `number` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `questions`
 --
