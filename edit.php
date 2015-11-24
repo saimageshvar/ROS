@@ -22,8 +22,8 @@
 						Answer <input type="text" name="answer" value="<?php echo $row['answer'] ?>" required /> <br />
 						Url Hint <input type="text" name="url_hint" value="<?php echo $row['url_hint'] ?>" required /> <br />
 						Clue <input type="text" name="clue" value="<?php echo $row['clues'] ?>" required /> <br />
-						Count <input type="number" name="count" id="count" value="<?php echo $row['img_count'] ?>" min="0" onchange="generate(this.value)" required /> <br />
-						<span id="fooBar">&nbsp;</span>
+						Count <input type="number" name="count" id="count" value="<?php echo $row['img_count'] ?>" min="0" max="4" onchange="generate(this.value)" required /> <br />
+						
 						
 						<?php
 							$query=sprintf("select img0,img1,img2,img3 from questions where level=".$level.";");
@@ -36,7 +36,7 @@
 							?>
 							
 							<img id="<?php echo 'i'.$level.'_'.$i ?>" src="<?php echo $img_path.$url['img'.$i] ?>" height="75" width="75" />
-							<input type="file" id="<?php echo $level.'_'.$i ?>" />
+							<input type="file" name="<?php echo $level.'_'.$i ?>" />
 							<input type="button" value="remove" id="<?php echo 'b'.$level.'_'.$i ?>" onclick="rem('<?php echo $level.'_'.$i ?>','<?php echo $url['img'.$i] ?>','<?php echo $level ?>','<?php echo $i ?>'); "/>
 							<input type="hidden" id="img_url" value="'<?php echo $img_path.$url['img'.$i] ?>'" />
 							<br/>
@@ -46,6 +46,8 @@
 							
 						}
 					?>
+					<br />
+					<span id="fooBar">&nbsp;</span>
 					<br />
 					<input type="submit" value="update">
 					
@@ -77,14 +79,15 @@
 						$("#fooBar").empty();
 						var level=document.getElementById("level").value;
 						var old_count=document.getElementById("hiddenCount").value;
-						count=count-old_count;
-						for(i=0;i<count;i++)
+						//count=count-old_count;
+						for(i=old_count;i<count;i++)
 						{
 							var element = document.createElement("input");
 							
 							
 							element.setAttribute("type", "file");
 							element.setAttribute("name", level+"_"+i);
+							element.setAttribute("required","true");
 							
 							
 							var foo = document.getElementById("fooBar");

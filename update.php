@@ -56,6 +56,6 @@
 	for($i=0;$i < $count;$i++)
 	upload($level."_".$i,$level,$conn,$i);
 	mysqli_close($conn);
-	//echo "<meta http-equiv='refresh' content='0;index.php'/>";
+	echo "<meta http-equiv='refresh' content='0;index.php'/>";
 	
 ?>

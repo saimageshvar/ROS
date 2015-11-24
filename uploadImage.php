@@ -5,10 +5,7 @@
 	
 	function upload($fileName,$level,$conn,$img_no)
 	{
-		if ($_FILES[$fileName]["name"] == "" && $_GET['update']==true)
-		{
-			return;
-		}
+		
 		$target_dir = "uploads/";
 		//echo $_FILES[$fileName]["name"];
 		//to handle image with space in name
