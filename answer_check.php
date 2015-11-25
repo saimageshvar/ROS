@@ -29,8 +29,7 @@
 	}
 	else
 	{
-		$update_user=sprintf("update users set lives=lives-1 where k_id='%s'",$k_id);
-		mysqli_query($conn,$update_user);
+		
 		echo "failure";
 	}
 	mysqli_close($conn);
