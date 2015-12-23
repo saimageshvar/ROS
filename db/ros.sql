@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2015 at 07:07 PM
+-- Generation Time: Dec 23, 2015 at 10:10 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
 --
 
 INSERT INTO `questions` (`level`, `answer`, `url_hint`, `img_count`, `clues`, `img0`, `img1`, `img2`, `img3`) VALUES
-(1, 'CTF', 'yahoo.com', 3, 'Train', '/uploads/1_0.jpg', '/uploads/1_1.jpg', '/uploads/1_2.jpg', NULL);
+(1, 'CTF', 'yahoo.com', 3, 'Train', '/uploads/1_0.jpg', '/uploads/1_1.png', '/uploads/1_2.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -78,7 +78,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `k_id` varchar(20) NOT NULL,
   `name` varchar(20) NOT NULL,
   `level` int(5) NOT NULL DEFAULT '1',
-  `points` int(5) NOT NULL DEFAULT '0',
   `blocked` tinyint(1) NOT NULL DEFAULT '0',
   `start_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `lives` int(1) NOT NULL DEFAULT '3'
@@ -88,8 +87,32 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`k_id`, `name`, `level`, `points`, `blocked`, `start_time`, `lives`) VALUES
-('10002FE3', 'sai', 2, 0, 0, '2015-11-24 23:35:46', 1);
+INSERT INTO `users` (`k_id`, `name`, `level`, `blocked`, `start_time`, `lives`) VALUES
+('10002FE3', 'sai', 2, 1, '2015-11-24 23:35:46', 1),
+('1008FT4', 'raghu', 1, 0, '2015-11-25 22:38:27', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `xceed_registrations`
+--
+
+CREATE TABLE IF NOT EXISTS `xceed_registrations` (
+  `k_id` varchar(20) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `phone_number` int(10) NOT NULL,
+  `mail_id` varchar(25) NOT NULL,
+  `place` varchar(10) NOT NULL,
+  `event_1` varchar(10) DEFAULT NULL,
+  `event_2` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `xceed_registrations`
+--
+
+INSERT INTO `xceed_registrations` (`k_id`, `name`, `phone_number`, `mail_id`, `place`, `event_1`, `event_2`) VALUES
+('1241DS', 'sai', 2147483647, 'afafh@hmao.com', 'IIM-A', 'biz', 'chaos');
 
 --
 -- Indexes for dumped tables
@@ -111,6 +134,12 @@ ALTER TABLE `questions`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
+ ADD PRIMARY KEY (`k_id`);
+
+--
+-- Indexes for table `xceed_registrations`
+--
+ALTER TABLE `xceed_registrations`
  ADD PRIMARY KEY (`k_id`);
 
 --
